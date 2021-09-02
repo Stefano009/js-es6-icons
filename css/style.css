@@ -7,7 +7,7 @@
     height: 100vh;
     font-family: 'rubik'
 }
-header, footer {
+header, footer, .select {
     height: 70px;
 }
 header {
@@ -48,4 +48,15 @@ main #icons {
 }
 i  {
     font-size: 2.5rem;
+}
+.select {
+    width: 100%;
+    display: flex;
+    background-color: blue;
+    justify-content: center;
+    align-items: center;
+    color: white;
+}
+.select > h2 {
+    margin-right: 2rem;
 }

@@ -110,18 +110,18 @@ const icons = [
       'orange',
       'purple'
   ];
+  const select = document.getElementById('select')
 //logic
 colorFunction(icons, colors);
-colorFunction(icons, colors)
 iconCreator(icons, iconsContainer);
-
+selectOptions(types(icons), select)
 //functions
 // creating icons on the HTML
 function iconCreator (array, container) {
-    iconsContainer.innerHTML = '';
-    icons.forEach((element) => {
+    container.innerHTML = '';
+    array.forEach((element) => {
         const {name, prefix, color, family} = element;
-        iconsContainer.innerHTML += `
+        container.innerHTML += `
             <div>
             <i class="${family} ${prefix}${name}" style = "color : ${color}"></i>
             <div class="title">${name}</div>
@@ -145,10 +145,16 @@ function types(array) {
 //function colors identifier
 function colorFunction(array, colors) {
     const myTypes = types(array);
-    const coloredArray = array.map((element) => {
+    array.map((element) => {
         const indexType = myTypes.indexOf(element.type);
         // console.log(indexType)
         element.color = colors[indexType];
         return element
     });
+}
+//select function
+function selectOptions(array, select) {
+    array.forEach((element) => {
+    select.innerHTML +=`<option value="${element}">${element}</option>`
+  });
 }
