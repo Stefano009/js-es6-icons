@@ -114,7 +114,11 @@ const icons = [
 //logic
 colorFunction(icons, colors);
 iconCreator(icons, iconsContainer);
-selectOptions(types(icons), select)
+selectOptions(types(icons), select);
+select.onchange = function(element) {
+  const filtered = filter(icons, element.target.value);
+  return iconCreator(filtered, iconsContainer)
+}
 //functions
 // creating icons on the HTML
 function iconCreator (array, container) {
@@ -157,4 +161,17 @@ function selectOptions(array, select) {
     array.forEach((element) => {
     select.innerHTML +=`<option value="${element}">${element}</option>`
   });
+}
+function filter(array, type) {
+  const filteredArray =array.filter((element) => {    
+    if(element.type === type){
+     return true; 
+    }
+    return false;
+  });
+  //if type is "" means we are selection option so no need to filter the array
+  if (type === "")
+    return array;
+
+  return filteredArray;
 }
