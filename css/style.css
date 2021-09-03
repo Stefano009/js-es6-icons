@@ -23,7 +23,7 @@ main {
     display: flex;
     flex-wrap: wrap;
     background-color: #DDDDDD;
-    height: calc(100% - 140px);
+    height: calc(100% - 210px);
     padding: 1.5rem;
 }
 
